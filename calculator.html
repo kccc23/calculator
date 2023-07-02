@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.calculator {
+    padding: 12px;
+    border-radius: 1.5em;
+    height: 280px;
+    width: 220px;
+    margin: auto;
+    background-color: #0c0c0c;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.numbers-and-operators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    padding-top: 15px;
+}
+
+.result-display {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #dcdbe1;
+    border: solid black 0.5px;
+    color: black;
+    border-radius: 5px;
+    width: 100%;
+    height: 20%;
+}
+
+#btn {
+    background-color: #374f2f;
+}
+
+input[type=button] {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #374f2f;
+    color: white;
+    border: solid grey 1px;
+    border-radius: 5px;
+    outline: none;
+}
+
+input:active[type=button] {
+    background: #faf0e6;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 20px #c1c1c1;
+}
+    </style>
+</head>
+<body>
+<div class="calculator">
+  <input type="text" class="result-display" id="result" />
+  <div class="numbers-and-operators">
+    <input type="button" name="1" value="1" id="1" onclick="cal(id)" />
+    <input type="button" name="2" value="2" id="2" onclick="cal(id)" />
+    <input type="button" name="3" value="3" id="3" onclick="cal(id)" />
+    <input type="button" name="4" value="4" id="4" onclick="cal(id)" />
+    <input type="button" name="5" value="5" id="5" onclick="cal(id)" />
+    <input type="button" name="6" value="6" id="6" onclick="cal(id)" />
+    <input type="button" name="7" value="7" id="7" onclick="cal(id)" />
+    <input type="button" name="8" value="8" id="8" onclick="cal(id)" />
+    <input type="button" name="9" value="9" id="9" onclick="cal(id)" />
+    <input type="button" name="0" value="0" id="0" onclick="cal(id)" />
+    <input type="button" name="(" value="(" id="lp" onclick="cal(id)" />
+    <input type="button" name=")" value=")" id="rp" onclick="cal(id)" />
+    <input type="button" name="add" value="+" id="add" onclick="cal(id)" />
+    <input type="button" name="minus" value="-" id="minus" onclick="cal(id)" />
+    <input type="button" name="multiply" value="*" id="multiply" onclick="cal(id)" />
+    <input type="button" name="devide" value="/" id="devide" onclick="cal(id)" />
+    <input type="button" name="equal" value="=" id="equal" onclick=""/>
+    <input type="button" name="dot" value="." id="dot" onclick="cal(id)" />
+    <input type="button" name="Clear" value="Clear" id="Clear" onclick="clearCal()"/>
+  </div>
+</div>
+<script>
+  let equation = "";
+  const cal = (id) => {
+    const value = document.getElementById(id).value;
+    equation += value;
+    let result = 0;
+    result = eval(equation);
+    document.getElementById("result").value = result;
+  }
+
+  const clearCal = () => {
+    document.getElementById("result").value = "";
+    equation = "";
+  }
+
+</script>
+</body>
+</html>
